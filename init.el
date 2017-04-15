@@ -11,6 +11,8 @@
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
 (defvar myPackages
   '(better-defaults
@@ -45,7 +47,7 @@
 ;; --------------------------------------
 
 ;;(package-initialize)
-(exec-path-from-shell-copy-env "PATH")
+;;(exec-path-from-shell-copy-env "PATH")
 (elpy-enable)
 (elpy-use-ipython)
 
